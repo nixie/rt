@@ -4,7 +4,7 @@ rt
 Small fractal raytracer (raymarcher).
 
 This is a school project created for course Computer Graphics at Brno University of Technology.
-Coauthors of this code are: Mira Skacel and Jirka Janda.
+The authors of this code are: Radek Fer (me), Mira Skacel and Jirka Janda.
 
 Features:
  * Two fractals implemented: Mengerspong and Mandelbulb
