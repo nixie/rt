@@ -1,10 +1,13 @@
 #include <iostream>
 #include <string>
+#include <sstream>
+#include <SDL/SDL_ttf.h>
 #include <assert.h>
 #include "common.h"
 #include "params.h"
 
 extern Params params;
+extern TTF_Font *font;
 
 void putpixel(SDL_Surface *surface, int x, int y, Uint32 pixel)
 {
@@ -69,3 +72,34 @@ float randomFloat(float min, float max) {
     float range = max - min;
     return (random*range) + min;
 }
+
+void render_line(char *text, int x, int y){
+    SDL_Color color={255,0,0,30};
+    SDL_Surface *text_surface;
+    SDL_Rect dest_rect;
+    dest_rect.x = x;
+    dest_rect.y = y;
+    if(!(text_surface=TTF_RenderUTF8_Blended(font,text,color))) {
+        //handle error here, perhaps print TTF_GetError at least
+        std::cout << "Error :" << TTF_GetError() << std::endl;
+    } else {
+        SDL_BlitSurface(text_surface,NULL,surf,&dest_rect);
+        //perhaps we can reuse it, but I assume not for simplicity.
+        SDL_FreeSurface(text_surface);
+    }
+}
+
+void render_text(std::string text){
+    std::istringstream iss(text);
+    char buf[256];
+    int y_displ = 10;
+
+    while(iss.good()){
+        iss.getline(buf, 256);
+        if (*buf != '\0'){
+            render_line(buf, 10, y_displ);
+        }
+        y_displ += params.font_size+2;
+    }
+}
+

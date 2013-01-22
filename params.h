@@ -31,12 +31,14 @@ class Params {
 			shadow_en(false), orbit_en(false), phong_en(true), 
 			reflect_en(false), fog_en(false), torch_en(false),
 			alias_en(false), alias_random_en(false),
-            dynamic_DE_thd(true) {};
+            dynamic_DE_thd(true),
+            display_params(false), font_size(12) {};
 
 		bool parseCmdline(int argc, char **argv);
 		bool saveOutput() { return !outfile.empty(); }
 		void saveParams();
 		void loadParams(bool next, bool interpolated);
+        std::string toString();
         void setFileCounters(int keyframe_counter, int config_counter);
 
 		int width, height;      // image resolution
@@ -83,6 +85,10 @@ class Params {
 		bool alias_en;		// enable aa
 		bool alias_random_en;		// enable random aa
         bool dynamic_DE_thd;
+        bool display_params;
+
+        int font_size;
+        double avg_stepcount;
 
 };
 

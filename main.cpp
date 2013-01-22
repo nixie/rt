@@ -2,6 +2,7 @@
 #include <SDL/SDL.h>
 #include <SDL/SDL_thread.h>
 #include <SDL/SDL_mutex.h>
+#include <SDL/SDL_ttf.h>
 #include <stdio.h>
 #include <stdlib.h>
 #include "common.h"
@@ -14,6 +15,7 @@ const double ROTATE_STEP=M_PI/16;
 
 SDL_Surface* surf;
 SDL_mutex *lock;
+TTF_Font* font;
 bool finished;
 bool stop_rendering;
 Params params;
@@ -48,6 +50,19 @@ int main(int argc, char **argv){
         char varsettings[]="SDL_VIDEODRIVER=dummy";
         putenv(varsettings);
     }
+
+    // Initialize TTF font rendering subsystem
+    if(TTF_Init()==-1) {
+        cout << "TTF_Init: " <<  TTF_GetError() << endl;
+        return 1;
+    }
+    atexit(TTF_Quit);
+    
+	if(!(font = TTF_OpenFont("/usr/share/fonts/TTF/TerminusMedium.ttf", params.font_size))) {
+		cout << "Error loading font: " << TTF_GetError() << endl;
+		return 1;
+	}
+
 
     // Initialize SDL and the video subsystem
     SDL_Init(SDL_INIT_VIDEO);
@@ -135,6 +150,10 @@ int main(int argc, char **argv){
 						break;
                     case SDLK_l:
                         params.loadParams(true,event.key.keysym.mod == KMOD_LSHIFT);
+                    case SDLK_i:
+                        params.display_params = true;
+                        break;
+
                         restartRendering(t1); break;
                     case SDLK_c:
                         // reset input config file counters

@@ -1,6 +1,6 @@
 CXXFLAGS=-Wall -pedantic -W -ggdb -std=c++0x
 #CFLAGS=-Wall -pedantic -W -g -DNDEBUG
-LDFLAGS=-D_GNU_SOURCE=1 -D_REENTRANT -I/usr/include/SDL -lSDL -lpthread -lm
+LDFLAGS=-D_GNU_SOURCE=1 -D_REENTRANT -I/usr/include/SDL -lSDL -lSDL_ttf -lpthread -lm
 DEMO_NAME=testing
 SOURCES=*.cpp *.h *.sh *.doc *.py Eigen
 PKG_NAME=xferra00

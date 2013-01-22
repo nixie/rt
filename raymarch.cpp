@@ -138,6 +138,7 @@ void render(void){
         SDL_mutexV(lock);
     }
     cout << "avg steps: " << (double)steps_sum/niters << endl;
+    params.avg_stepcount = (double)steps_sum/niters;
 }
 
 
@@ -150,6 +151,10 @@ int rendering_thread(void *data){
     // Output time consumed for rendering
     unsigned int end = SDL_GetTicks();
     cout << SDL_ThreadID() << ": done, " << 1e-3*(end-begin) << "seconds\n";
+
+    if (params.display_params){
+        render_text(params.toString());
+    }
 
     // If requested by the --outfile command line parameter, save rendering
     // to file

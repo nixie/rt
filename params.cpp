@@ -186,6 +186,7 @@ void Params::saveParams() {
     file << bool2str(alias_en);
     file << bool2str(alias_random_en);
     file << bool2str(dynamic_DE_thd);
+    file << bool2str(display_params);
 
 
     file.close();
@@ -265,6 +266,7 @@ void Params::loadParams(bool next, bool interpolated) {
     getline(file, temp); alias_en = str2val(temp);
     getline(file, temp); alias_random_en = str2val(temp);
     getline(file, temp); dynamic_DE_thd = str2val(temp);
+    getline(file, temp); display_params = str2val(temp);
     
     if (preview_mode){
         ao_en = false;
@@ -279,6 +281,27 @@ void Params::loadParams(bool next, bool interpolated) {
 
     file.close();
     cout << "Loaded configuration from file " << configfile << ".\n";
+}
+
+std::string Params::toString(){
+    ostringstream s;
+    s << "Configuration:\n"
+        "  log2(zoom):    " << log2(zoom) << "\n"
+        "  shadows:       " << shadow_en << "\n"
+        "  orbit traps:   " << orbit_en << "\n"
+        "  phong:         " << phong_en << "\n"
+        "  reflections:   " << reflect_en << "\n"
+        "  antialiasing:  " << alias_en << "\n"
+        "  stochastic AA: " << alias_random_en << "\n";
+    if (fog_en){
+        s << "  fog distance:  " << fog_dist;
+    }else{
+        s << "  fog distance:  N/A";
+    }
+    s <<"\n\nNearest surface:   " << last_distance;
+    s <<"\nAverage stepcount: " << avg_stepcount;
+
+    return s.str();
 }
 
 void Params::setFileCounters(int keyframe_counter, int config_counter){

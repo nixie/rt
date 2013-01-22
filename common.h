@@ -19,6 +19,10 @@ int save_surface(std::string fname);
 //Random float in interval
 float randomFloat(float min, float max);
 
+// Render text to framebuffer
+//  x,y - coordinates, where the text should begin
+//  w   - width of the text on frame
+void render_text(std::string text);
 
 #endif
 
