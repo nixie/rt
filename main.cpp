@@ -58,7 +58,7 @@ int main(int argc, char **argv){
     }
     atexit(TTF_Quit);
     
-	if(!(font = TTF_OpenFont("/usr/share/fonts/TTF/TerminusMedium.ttf", params.font_size))) {
+	if(!(font = TTF_OpenFont("TerminusMedium.ttf", params.font_size))) {
 		cout << "Error loading font: " << TTF_GetError() << endl;
 		return 1;
 	}

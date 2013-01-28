@@ -64,7 +64,8 @@ bool Params::parseCmdline(int argc, char **argv){
                 outfile = argv[i + 1];
                 // we do not need interleave framebuffer now, so set grid
                 // step to 1 for better data locality
-                gs = 1;
+                //gs = 1;
+                gs=3;
                 i++;
             }
 
@@ -268,9 +269,9 @@ void Params::loadParams(bool next, bool interpolated) {
     getline(file, temp); dynamic_DE_thd = str2val(temp);
     getline(file, temp); display_params = str2val(temp);
     
-    //shadow_en = true;
-    //alias_en = true;
-    //reflect_en = true;
+    shadow_en = true;
+    alias_en = true;
+    reflect_en = true;
 
     if (preview_mode){
         ao_en = false;

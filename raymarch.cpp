@@ -48,6 +48,7 @@ void render(void){
     // loop through all screen pixels. Always skip gs pixels verticaly
     // and horizontaly, so we can see early results.
     for (int offset=0; offset < params.gs*params.gs; offset++){
+        cerr << offset << endl;
         for (int y=offset/params.gs; y < params.height; y+=params.gs){
             for (int x=offset%params.gs; x < params.width; x+=params.gs){
 
