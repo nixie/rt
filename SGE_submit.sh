@@ -3,9 +3,9 @@
 # Datum:   01.12.2012 00:03
 # Autor:   xferra00
 
-export DEMODIR="demo_testing";
-export RESOLUTION="640x480";
-export FRAMESPERTASK="5";
+export DEMODIR="demo_orbit";
+export RESOLUTION="854x480";
+export FRAMESPERTASK="3";
 
 # check if there is executable of our raytracer present
 [ ! -e rt ] && { echo "Raytracer executable not found!"; exit 1;}

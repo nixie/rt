@@ -26,10 +26,10 @@ class Params {
 			world_yaw(0.0), world_pitch(0), world_roll(0.0),
             alias_size(2), 
 			light{Vector3d(3,2,3), Vector3d(4.0, 0.0, 1.05)},
-			light_en{true, false}, floor_col(0.8,0.8,0.8),
+			light_en{true, false}, floor_col(0.2,0.5,0.2),
 			bg_col(1.0,1.0,1.0), fog_dist(0.4), ao_en(false), 
 			shadow_en(false), orbit_en(false), phong_en(true), 
-			reflect_en(false), fog_en(false), torch_en(false),
+			reflect_en(false), fog_en(false), torch_en(true),
 			alias_en(false), alias_random_en(false),
             dynamic_DE_thd(true),
             display_params(false), font_size(12) {};

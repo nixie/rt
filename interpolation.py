@@ -6,7 +6,7 @@ from scipy import interpolate
 import matplotlib.pyplot as plt
 import os.path
 
-fps=30;
+fps=40;
 debug=False;
 
 if len(sys.argv) != 3:
@@ -51,6 +51,7 @@ while not stop:
 # new x axis
 xnew = np.arange(0,len(fds)-1,1/fps)
 
+print('Number of frames: %d (%d keyframes, %d FPS)' % (len(xnew), cnt,fps ))
 # open output file for each interpolated config file
 newfds=[]
 for (i,x) in enumerate(xnew):
