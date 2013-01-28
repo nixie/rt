@@ -5,7 +5,7 @@
 
 N_CORES=`cat /proc/cpuinfo | grep processor | wc -l`
 echo "Detected $N_CORES cores for rendering.";
-RES=120x90
+RES=100x75
 
 [ "$#" == "1" ] || exit 1;
 

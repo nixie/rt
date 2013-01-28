@@ -268,6 +268,10 @@ void Params::loadParams(bool next, bool interpolated) {
     getline(file, temp); dynamic_DE_thd = str2val(temp);
     getline(file, temp); display_params = str2val(temp);
     
+    //shadow_en = true;
+    //alias_en = true;
+    //reflect_en = true;
+
     if (preview_mode){
         ao_en = false;
         shadow_en = false;

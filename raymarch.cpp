@@ -30,7 +30,7 @@ void render(void){
 
     // print how far the camera is from fractal surface
     params.last_distance = distEstim(m_wld*params.camera_pos);
-    cout << "Nearest surface: " << params.last_distance << endl;
+    //cout << "Nearest surface: " << params.last_distance << endl;
 
     int niters=0;
     int steps_sum=0;
@@ -137,20 +137,20 @@ void render(void){
         SDL_Flip(surf);
         SDL_mutexV(lock);
     }
-    cout << "avg steps: " << (double)steps_sum/niters << endl;
+    //cout << "avg steps: " << (double)steps_sum/niters << endl;
     params.avg_stepcount = (double)steps_sum/niters;
 }
 
 
 int rendering_thread(void *data){
-    cout << SDL_ThreadID() << ": started" << endl;
-    unsigned int begin = SDL_GetTicks();
+    //cout << SDL_ThreadID() << ": started" << endl;
+    //unsigned int begin = SDL_GetTicks();
 
     render();
 
     // Output time consumed for rendering
-    unsigned int end = SDL_GetTicks();
-    cout << SDL_ThreadID() << ": done, " << 1e-3*(end-begin) << "seconds\n";
+    //unsigned int end = SDL_GetTicks();
+    //cout << SDL_ThreadID() << ": done, " << 1e-3*(end-begin) << "seconds\n";
 
     if (params.display_params){
         render_text(params.toString());

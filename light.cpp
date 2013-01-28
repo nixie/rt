@@ -15,13 +15,13 @@ double dfloor = 0.0;
 
 // surface parameters
 Vector3d shad_col(0.0, 0.0, 0.0);  // shadow color
-double Camb = 0.15;		   // ambient coefficient
+double Camb = 0.25;		   // ambient coefficient
 Vector3d amb_col(1.0, 1.0, 1.0);   // ambient color
 double Cdiff = 0.4;		   // diffuse coefficient
 Vector3d diff_col(1.0, 1.0, 1.0);  // diffuse color
 double Cspec = 0.35;	 	   // specular coefficient
 Vector3d spec_col(1.0, 1.0, 1.0);  // specular color
-double shininess = 16.0;	   // specular shininess
+double shininess = 40.0;	   // specular shininess
 
 // orbit traps colors
 Vector3d YZ_col(1.0, 1.0, 1.0);

@@ -150,11 +150,16 @@ int main(int argc, char **argv){
 						break;
                     case SDLK_l:
                         params.loadParams(true,event.key.keysym.mod == KMOD_LSHIFT);
+                        restartRendering(t1); break;
+                    case SDLK_F12:  // load config from keyframe_0.txt
+                        params.setFileCounters(0,0);
+                        params.loadParams(false, false);
+                        restartRendering(t1); break;
+
                     case SDLK_i:
                         params.display_params = true;
                         break;
 
-                        restartRendering(t1); break;
                     case SDLK_c:
                         // reset input config file counters
                         params.setFileCounters(0,0);
@@ -226,12 +231,14 @@ int main(int argc, char **argv){
 					case SDLK_F9: params.torch_en = !params.torch_en;
 								  restartRendering(t1); break;
 
-					case SDLK_KP_PLUS:  params.fog_dist += 0.04;
-										restartRendering(t1); break;
-					case SDLK_KP_MINUS:  params.fog_dist -= 0.04;
-										 restartRendering(t1); break;
+                    /* Fog distance */
+					case SDLK_PLUS: params.fog_dist += 0.05;
+                                  restartRendering(t1); break;
+					case SDLK_MINUS: params.fog_dist -= 0.05;
+                                  restartRendering(t1); break;
 
-					default: break;
+					default:
+                                  break;
 				}
 				break;
 			default:
