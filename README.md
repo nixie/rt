@@ -17,5 +17,5 @@ Features:
  
 This is just a small demo project, see [mandelbulber3d](http://www.mandelbulb.com/tag/mandelbulb-3d/), which is much better tool for 3d fractal exploration! 
 
-![mengerspong](fract1.png)
-![mandelbulb](fract2.png)
+
+<img src="./fract3.png" height="350"><img src="./fract2.png" height="350">
